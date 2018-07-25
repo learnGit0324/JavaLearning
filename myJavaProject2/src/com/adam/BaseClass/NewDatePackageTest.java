@@ -3,6 +3,13 @@ package com.adam.BaseClass;
 import java.time.Clock;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+import java.time.MonthDay;
+import java.time.Year;
+import java.time.YearMonth;
 
 public class NewDatePackageTest {
 	public static void main(String[] args) {
@@ -34,6 +41,45 @@ public class NewDatePackageTest {
 		Instant instant4 = instant3.plus(Duration.ofHours(5).plusMinutes(4));
 		System.out.println(instant4);
 		//get the moment five days before the instant4 
-		
+		Instant instant5 = instant4.minus(Duration.ofDays(5));
+		System.out.println(instant5);
+		// below is the usage of the LocalDate
+		LocalDate localDate = LocalDate.now();
+		System.out.println(localDate);
+		//get the 146 day of the 2018 year
+		localDate = LocalDate.ofYearDay(2018, 146);
+		System.out.println(localDate);
+		//set the date as 2018-05-21
+		localDate = LocalDate.of(2018, Month.MAY, 21);
+		System.out.println(localDate);
+		//below is the usage of LocalTime 
+		LocalTime localTime = LocalTime.now();
+		System.out.println(localTime); // get the time with Hour Minutes Seconds & 9 digits milliseconds
+		//set the time as 22:33
+		localTime = LocalTime.of(22, 33);
+		System.out.println(localTime);
+		// return time of the 5503s in one day
+		localTime = LocalTime.ofSecondOfDay(5503);
+		System.out.println(localDate);
+		//below is usage of the LocalDateTime
+		// get the current date, time 
+		LocalDateTime lcoalDateTime = LocalDateTime.now();
+		// current date, time adding 25 hours and 3 minutes
+		LocalDateTime future = lcoalDateTime.plusHours(25).plusMinutes(3);
+		System.out.println(future);
+		//below is the usage of Year, YearMonth, MonthDay
+		Year year = Year.now();
+		System.out.println("Current year is :" + year);
+		year = year.plusYears(5);
+		System.out.println("5 years later is :" + year);
+		YearMonth ym =year.atMonth(10);
+		System.out.println(ym);
+		ym = ym.plusYears(5).minusMonths(3);
+		System.out.println(ym);
+		// set the date as May-23
+		MonthDay md = MonthDay.now();
+		System.out.println(md);
+		MonthDay md2 = md.with(Month.MAY).withDayOfMonth(23);
+		System.out.println(md2);
 	}
 }
