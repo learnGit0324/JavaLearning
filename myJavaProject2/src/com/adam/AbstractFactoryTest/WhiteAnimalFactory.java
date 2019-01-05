@@ -13,5 +13,11 @@ public class WhiteAnimalFactory implements IAnimalFactory{
 		// TODO Auto-generated method stub
 		return new WhiteDog();
 	}
+
+	@Override
+	public ISheep creatSheep() {
+		// TODO Auto-generated method stub
+		return new WhiteSheep();
+	}
 	
 }

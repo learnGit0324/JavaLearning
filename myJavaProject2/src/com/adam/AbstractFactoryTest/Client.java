@@ -14,6 +14,8 @@ public class Client {
 		whiteDog.eat();
 		ICat whiteCat = whiteAnimalFactory.createCat();
 		whiteCat.eat();
+		ISheep whiteSheep = whiteAnimalFactory.creatSheep();
+		whiteSheep.eat();
 	}
 
 }

@@ -39,7 +39,6 @@ public class Arith {
 
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Double r1 = Arith.add(2.3, 2.4);
 		System.out.println(r1);
 		Double r2 =Arith.sub(2.3, 2.2);

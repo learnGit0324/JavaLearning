@@ -3,6 +3,9 @@ package com.adam.Abstract;
 public class Triangle extends Shape{
 	private double a, b, c;
 	public Triangle(String color, double a, double b, double c){
+		/**
+		 * 先执行父类的类初始化块 和 父类的 构造器
+		 */
 		super(color);
 		this.setSides(a, b, c);
 	}
@@ -26,6 +29,8 @@ public class Triangle extends Shape{
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Triangle triangle = new Triangle("Red", 1.0, 2.0, 2.0);
+		triangle.calPerimeter();
 		
 	}
 

@@ -10,7 +10,9 @@ public abstract class Shape {
 	//定义一个返回形状的抽象方法
 	public  abstract String getType();
 	//定义Shape的构造器，该构造器并不适用于创建对象，而是被子类调用
-	public Shape(){}
+	public Shape(){
+		System.out.println("执行Shape的无参构造器");
+	}
 	public Shape(String color){
 		System.out.println("执行Shape的构造器");
 		this.color = color;
