@@ -10,7 +10,7 @@ public class TreeSetTest4 {
 		ts.add(new Q(9));
 		ts.add(new Q(-2));
 		//打印ts集合，集合元素是有序的
-		System.out.println(ts);
+		System.out.println(ts);	
 		//取出第一个元素
 		Q first = (Q) ts.first();
 		first.count = 20;
@@ -19,6 +19,12 @@ public class TreeSetTest4 {
 		//对最后一个元素的count赋值，与第二个元素的count相同
 		last.count = -2;
 		//再次输出将看到TreeSet里的元素处于无序状态，且有重复元素
+		System.out.println(ts);
+		//删除实例变量被改变的元素，删除失败
+		System.out.println(ts.remove(new Q(-2)));
+		System.out.println(ts);
+		//删除实例变量被改变的元素，删除成功
+		System.out.println(ts.remove(new Q(5)));
 		System.out.println(ts);
 	}
 }
