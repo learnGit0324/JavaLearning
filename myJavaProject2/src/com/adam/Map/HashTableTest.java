@@ -3,12 +3,20 @@ package com.adam.Map;
 import java.util.Hashtable;
 
 public class HashTableTest {
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		Hashtable ht = new Hashtable();
+		ht.put(1, "Aa");
+		ht.put(1, "Aa");
+		ht.put(2, "Ab");
+		System.out.println(ht); // 输出{2=Ab, 1=Aa}
+		ht.put(2, "Ac");
+		System.out.println(ht); // 输出{2=Ac, 1=Aa} 说明只要key的equals相等就表示两个元素相等，HashTable就存不进去， 但是value会发生被替换
+		//下面的 new A(60000 在对应的是不同的key， 从打印的结果可以看到这两个key-value对都储存了
 		ht.put(new A(60000), "a");
+		ht.put(new A(60000), "c");
+		
 		ht.put(new A(87653), "b");
 		ht.put(new A(1232), new B());
-		ht.put(4, "c");
 		System.out.println(ht +"-"+ ht.size());
 		//只要两个对象通过equals()方法比较返回true
 		//Hashtable就认为它们是相等的
@@ -17,7 +25,7 @@ public class HashTableTest {
 		//Hashtable即认为它们是相等的
 		System.out.println(ht.get(new A(87653)));
 		System.out.println(ht.containsKey(new A(87653)));// false
-		System.out.println(ht.containsKey(4));// true
+		System.out.println(ht.containsKey(4));
 		ht.remove(new A(1232));
 		System.out.println(ht);
 	}
@@ -30,14 +38,15 @@ class A{
 	}
 	//根据count的值来判断两个对象是否相等
 	public boolean equales(Object obj) {
-		if(obj == this) {
-			return true;
-		}
-		if(obj != null && obj.getClass() == A.class) {
-			A a = (A) obj;
-			return this.count == a.count;
-		}
-		return false;
+//		if(obj == this) {
+//			return true;
+//		}
+//		if(obj != null && obj.getClass() == A.class) {
+//			A a = (A) obj;
+//			return this.count == a.count;
+//		}
+//		return false;
+	    return true;
 	}
 	//根据count来计算hashCode值
 	public int hashCode(){
