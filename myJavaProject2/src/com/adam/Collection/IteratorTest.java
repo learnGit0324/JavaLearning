@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import org.junit.Test;
 
@@ -18,12 +17,12 @@ public class IteratorTest {
 	@Test
 	public void iteratorTest1() {
 		// 创建集合
-		Collection books = new HashSet();
+		Collection<String> books = new HashSet<>();
 		books.add("Java");
 		books.add("Python");
 		books.add("Android");
 		// 获取books集合对应的迭代器
-		Iterator it = books.iterator();
+		Iterator<String> it = books.iterator();
 		while (it.hasNext()) {
 			// it.next()返回的数据类型是object类型， 因此需要进行类型转换
 			String book = (String) it.next();
@@ -42,12 +41,12 @@ public class IteratorTest {
 	 */
 	@Test
 	public void iteratorTest2() {
-		Collection books = new HashSet();
+		Collection<String> books = new HashSet<>();
 		books.add("Java");
 		books.add("Python");
 		books.add("Android");
 		// 获取books集合对应的迭代器
-		Iterator it = books.iterator();
+		Iterator<String> it = books.iterator();
 		while (it.hasNext()) {
 			String book = (String) it.next();
 			System.out.println(book);
@@ -60,7 +59,7 @@ public class IteratorTest {
 	@Test
 	public void predicateTest() {
 		// 创建一个集合
-		Collection books = new HashSet();
+		Collection<String> books = new HashSet<>();
 		books.add("Crazy Java");
 		books.add("Python");
 		books.add("Android");
@@ -73,7 +72,7 @@ public class IteratorTest {
 	@Test
 	public void predicateTest2() {
 		// 创建一个集合
-		Collection books = new HashSet();
+		Collection<String> books = new HashSet<>();
 		books.add("Crazy Java");
 		books.add("Python");
 		books.add("Android");
@@ -84,7 +83,7 @@ public class IteratorTest {
 		System.out.println(calAll(books, ele -> ((String) ele).length() > 10));
 	}
 
-	public static int calAll(Collection books, Predicate p) {
+	public static int calAll(Collection<String> books, Predicate<Object> p) {
 		int total = 0;
 		for (Object object : books) {
 			if (p.test(object)) {
@@ -111,7 +110,7 @@ public class IteratorTest {
 		}
 		list.remove("BC");
 		System.out.println(list);
-		Collection c = new HashSet();
+		Collection<String> c = new HashSet<>();
 		c.add("C");
 		c.add("D");
 		// 在list集合之后插入c集合
@@ -148,7 +147,7 @@ public class IteratorTest {
 	@Test
 	public void collectionStream() {
 		// 创建一个集合
-		Collection books = new HashSet();
+		Collection<String> books = new HashSet<>();
 		books.add("Crazy Java");
 		books.add("Python");
 		books.add("Android");

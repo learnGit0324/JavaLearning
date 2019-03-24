@@ -44,7 +44,11 @@ public class Printer implements Product, Output{
 		//创建一个Printer对象，当成Product使用
 		Product p = new Printer();
 		System.out.println(p.getProductTime());
-		Object obj = p;
+	}
+
+	public void foo() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

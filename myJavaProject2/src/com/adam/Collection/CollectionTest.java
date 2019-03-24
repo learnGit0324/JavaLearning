@@ -10,7 +10,7 @@ public class CollectionTest {
 	
 	@Test
 	public void collectionTest1() {
-		Collection c = new ArrayList<>();
+		Collection<Object> c = new ArrayList<>();
 		//add elements 
 		c.add("Adam");
 		//虽热集合里面不能放基本类型的值，但是Java支持自动封装
@@ -24,7 +24,7 @@ public class CollectionTest {
 		c.add("Java");
 		System.out.println("c集合的元素："+c);
 		
-		Collection books = new HashSet();
+		Collection<String> books = new HashSet<>();
 		books.add("Java");
 		books.add("Python");
 		System.out.println("c集合是否包含books："+c.containsAll(books));

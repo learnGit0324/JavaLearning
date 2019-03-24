@@ -8,7 +8,7 @@ import org.junit.Test;
 public class LambdaTest {
 	@Test
 	public void collectionEachTest1() {
-		Collection books = new HashSet();
+		Collection<String> books = new HashSet<>();
 		books.add("Java");
 		books.add("Python");
 		books.add("Android");

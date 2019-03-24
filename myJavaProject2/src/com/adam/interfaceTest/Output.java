@@ -20,11 +20,11 @@ public interface Output {
 		return "接口里的类方法";
 	}
 	//接口中定义私有方法, 接口的私有方法也要有方法体 仅支持JDK 9
-	private void foo(){
+	static void foo(){
 		System.out.println("foo私有方法");
 	}
 	//定义私有静态方法
-	private static void bar(){
+	static void bar(){
 		System.out.println("私有静态方法");
 	}
 }	

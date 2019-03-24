@@ -28,7 +28,7 @@ public class VarHandleTest {
 		System.out.println(vh2.get());
 		vh2.set(100);
 		System.out.println(vh2.get());
-		System.out.println(user.MAX_AGE);
+		System.out.println(User.MAX_AGE);
 	}
 }
 class User{

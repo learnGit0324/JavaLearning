@@ -1,17 +1,17 @@
 package com.adam.enumTest;
 
 public class Season {
+	public static final Season SPRING = new Season("´ºÌì","´ºÀ×ÕóÕó");
+	public static final Season SUMMER = new Season("ÏÄÌì","ÏÄÈÕÑ×Ñ×");
+	public static final Season FALL = new Season("ÇïÌì","Çï¸ßÆøË¬");
+	public static final Season WINTER = new Season("¶¬Ìì","Î§Â¯ÉÍÑ©");
+	private final String name;
+	private final String desc;
 	private Season(String name, String desc) {
 		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.desc = desc;
 	}
-	private final String name;
-	private final String desc;
-	public static final Season SPRING = new Season("´ºÌì","´ºÀ×ÕóÕó");
-	public static final Season SUMMER = new Season("ÏÄÌì","ÏÄÈÕÑ×Ñ×");
-	public static final Season FALL = new Season("ÇïÌì","Çï¸ßÆøË¬");
-	public static final Season WINTER = new Season("¶¬Ìì","Î§Â¯ÉÍÑ©");
 	public static Season getSeason(int seasonNum) {
 		switch(seasonNum) {
 		case 1:
