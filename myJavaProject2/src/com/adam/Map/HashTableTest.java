@@ -4,7 +4,7 @@ import java.util.Hashtable;
 
 public class HashTableTest {
 	public static void main(String[] args) {		
-		Hashtable ht = new Hashtable();
+		Hashtable<Object, Object> ht = new Hashtable<>();
 		ht.put(1, "Aa");
 		ht.put(1, "Aa");
 		ht.put(2, "Ab");
@@ -27,7 +27,10 @@ public class HashTableTest {
 		System.out.println(ht.containsKey(new A(87653)));// false
 		System.out.println(ht.containsKey(4));
 		ht.remove(new A(1232));
-		System.out.println(ht);
+		System.out.println(ht +"-"+ ht.size());
+		
+		boolean b = new A(5).equals(new A(5));
+		System.out.println(b);
 	}
 }
 
@@ -38,15 +41,14 @@ class A{
 	}
 	//根据count的值来判断两个对象是否相等
 	public boolean equales(Object obj) {
-//		if(obj == this) {
-//			return true;
-//		}
-//		if(obj != null && obj.getClass() == A.class) {
-//			A a = (A) obj;
-//			return this.count == a.count;
-//		}
-//		return false;
-	    return true;
+		if(obj == this) {
+			return true;
+		}
+		if(obj != null && obj.getClass() == A.class) {
+			A a = (A) obj;
+			return this.count == a.count;
+		}
+		return false;
 	}
 	//根据count来计算hashCode值
 	public int hashCode(){

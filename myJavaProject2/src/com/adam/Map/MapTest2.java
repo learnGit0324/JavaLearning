@@ -13,7 +13,7 @@ public class MapTest2 {
 	 * @author zhaoj
 	 */
 	public static void main(String[] args) {
-		Map map = new HashMap();
+		Map<Integer, String> map = new HashMap<>();
 		map.put(1, "a");
 		System.out.println(map);
 		/**
