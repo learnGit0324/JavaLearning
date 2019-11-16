@@ -3,7 +3,11 @@ package com.adam;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.VarHandle;
 import java.util.Arrays;
-
+/**
+ * VarHandle Java 9 Ьиад
+ * @author JianangZhao
+ *
+ */
 public class VarHandleTest {
 	public static void main(String[] args) throws Throwable {
 		String[] as = new String[]{"Java","Kotlin","Go"};
