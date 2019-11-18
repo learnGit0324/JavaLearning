@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- bean的id用来表示要引用的类 类名要求是全类名 通过反射的方式在IOC容器中创建bean 要求类中要有无参数的构造器-->
+	<!-- 配置beans -->
+	<bean id="helloWorld" class="Spring.com.adam.HelloWorld">
+	<property name="name" value="Spring"></property>
+	</bean>
+	
+	<bean id="car" class="Spring.com.adam.Car">
+	<constructor-arg value="Audi" index="0"></constructor-arg>
+	<constructor-arg value="ShangHai" index="1"></constructor-arg>
+	<constructor-arg value="300000.0" index="2"></constructor-arg>
+	</bean>
+	<!-- 通过构造器注入属性值，可以根据构造器参数的数量和类型的不同 来区分重载的构造器 -->
+	<bean id="car2" class="Spring.com.adam.Car">
+	<constructor-arg value="Bmw" type="java.lang.String"></constructor-arg>
+	<constructor-arg value="ShangHai" type="java.lang.String"></constructor-arg>
+	<constructor-arg value="240" type="int"></constructor-arg>
+	<!-- 也可以使用下面的方式在注入属性值
+	<constructor-arg type ="int">
+		<value>250</value>
+	</constructor-arg>
+	-->
+	</bean>
+	<bean id="car3" class="Spring.com.adam.Car">
+	<constructor-arg value="Bmw" type="java.lang.String"></constructor-arg>
+	<!-- 如果字面值包含特殊符号 可以使用下面的方法 -->
+	<constructor-arg type="java.lang.String">
+	<!-- <value><![CDATA[<Shanghai>]]></value> -->
+		<value><![CDATA[~~BeiJing]]></value>
+	</constructor-arg>
+	<constructor-arg value="240" type="int"></constructor-arg>
+	</bean>
+	
+	<bean id="person" class="Spring.com.adam.Person">
+		<property name="name" value="Tom"></property>
+		<property name="age" value="24"></property>
+		<!-- 可以使用property的ref属性建立ben之间的引用关系 -->
+		<!-- <property name="car" ref="car"></property>  -->
+		<!-- 内部bean 不能被外部引用 只能在内部使用-->
+		<property name="car">
+			<bean class="Spring.com.adam.Car">
+				<constructor-arg value="Ford"></constructor-arg>
+				<constructor-arg value="Changan"></constructor-arg>
+				<constructor-arg value="200000"></constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="person2" class="Spring.com.adam.Person">
+		<constructor-arg value="Jerry"></constructor-arg>	
+		<constructor-arg value="25"></constructor-arg>	
+		<constructor-arg ref="car"></constructor-arg> 
+		<!-- 测试赋值null -->
+		<!-- <constructor-arg><null/></constructor-arg> -->
+		<!-- 为级连属性赋值 -->
+		<property name="car.maxSpeed" value="250"></property>
+	</bean>
+	
+	<bean id="person3" class="Spring.com.adam.collections.Person">
+		<property name="name" value="Mike"></property>
+		<property name="age" value="28"></property>
+		<property name="cars">
+			<list>
+				<ref bean="car"/>
+				<ref bean="car2"/>
+				<ref bean="car3"/>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 配置Map属性值 -->
+	<bean id="newPerson" class="Spring.com.adam.collections.NewPerson">
+	<property name="name" value="Rose"></property>
+	<property name="age" value="27"></property>
+	<property name="cars">
+		<map>
+			<entry key="AA" value-ref="car"></entry>
+			<entry key="BB" value-ref="car2"></entry>
+		</map>
+	</property>
+	</bean>
+
+</beans>
