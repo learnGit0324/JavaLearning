@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="address" class="Spring.com.adam.autowire.Address"
+		p:city="Beijing" p:street="WuDaoKou"></bean>
+	<bean id="address2" class="Spring.com.adam.autowire.Address"
+		p:city="Beijing" p:street="DaZhongshi"></bean>
+	
+	<!-- bean配置的继承 -->
+	<!-- 子bean可以重写父bean的属性 -->
+	<bean id="address3" p:city="Beijing^" p:street="DaZhongshi" parent="address2"></bean>
+	
+	<!-- 创建抽象bean 不指定class属性 -->
+	<bean id="address4" p:city="Beijing" p:street="WuDaoKou" abstract="true"></bean>
+	
+	<bean id="address5" class="Spring.com.adam.autowire.Address"
+		p:city="HangZhou" p:street="Xihu" parent="address4"></bean>
+	
+	<!-- bean依赖于其他的bean 如car -->	
+	<bean id="person" class="Spring.com.adam.autowire.Person"
+		p:name="Tom" p:address-ref="address5" depends-on="car"></bean>
+	
+	<bean id="car" class="Spring.com.adam.autowire.Car"
+		p:brand="Aodi" p:price="300000"></bean>
+	
+</beans>
