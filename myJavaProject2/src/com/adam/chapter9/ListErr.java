@@ -1,7 +1,7 @@
 package com.adam.chapter9;
 
 import java.util.ArrayList;
-import java.util.List;import org.apache.commons.collections.bag.SynchronizedSortedBag;
+import java.util.List;
 
 public class ListErr {
 	public static void main(String[] args) {

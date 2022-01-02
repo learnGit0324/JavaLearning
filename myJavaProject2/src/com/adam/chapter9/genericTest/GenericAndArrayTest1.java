@@ -13,7 +13,7 @@ public class GenericAndArrayTest1 {
 		oa[1] = li;
 		//下面的代码引起类型转换异常
 		//java.base/java.lang.Integer cannot be cast to java.base/java.lang.String
-		List<String> arr = lsa[1];
-		String s = lsa[1].get(0);
+//		List<String> arr = lsa[1];
+//		String s = lsa[1].get(0);
 	}
 }

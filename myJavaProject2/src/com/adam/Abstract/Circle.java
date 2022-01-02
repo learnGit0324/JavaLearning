@@ -10,10 +10,12 @@ public class Circle extends Shape{
 		this.radius = radius;
 	}
 	//重写Shape类的计算周长的抽象方法
+	@Override
 	public double calPerimeter(){
 		return radius * 2 * Math.PI;
 	}
 	//重写Shape类的返回形状的抽象方法
+	@Override
 	public String getType(){
 		return getColor()+"圆形";
 	}
