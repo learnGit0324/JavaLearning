@@ -20,7 +20,8 @@ public class CSVUtils {
 			 csvReader.readHeaders();
 			while (csvReader.readRecord()) {
 				String str = csvReader.getRawRecord();
-				String[] strList =  str.split(","); //TODO 如果字段值中存在“,”的处理
+				String[] strList =  str.split(","); 
+				//TODO 如果字段值中存在“,”的处理
 				NewModel newModel = generateNewModel(strList);
 				dataList.add(newModel);
 //				list.add(str);
